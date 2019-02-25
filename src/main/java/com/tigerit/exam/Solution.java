@@ -120,6 +120,7 @@ public class Solution implements Runnable {
             }
 
             printLine("Test: " + caseNo);
+            caseNo++;
             for(Query q: queryList) {
                 Table t = q.generateResult();
                 t.printTable();

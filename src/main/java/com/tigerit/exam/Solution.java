@@ -56,14 +56,19 @@ public class Solution implements Runnable {
                     while(dataInputScanner.hasNextInt()) {
                         rowDataList.add(dataInputScanner.nextInt());
                     }
-                    printLine(rowDataList);
                     table.data.add(rowDataList);
                 }
 
+                // table.printTable();
                 tableList.add(table);
             }
 
-            printLine(tableList);
+            // Integer nQ = readLineAsInteger();
+            // while(nQ > 0) {
+            //     nQ = nQ - 1;
+            //
+            //
+            // }
         }
     }
 }
@@ -88,12 +93,43 @@ class Table {
 
     @Override
     public String toString() {
-        return "Table{" +
-                "name='" + name + '\'' +
-                ", numOfColumns=" + numOfColumns +
-                ", numOfRecords=" + numOfRecords +
-                ", columns=" + columns +
-                ", data=" + data +
-                '}';
+        final StringBuilder sb = new StringBuilder("Table{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", numOfColumns=").append(numOfColumns);
+        sb.append(", numOfRecords=").append(numOfRecords);
+        sb.append(", columns=").append(columns);
+        sb.append(", data=").append(data);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public void printTable() {
+        StringBuilder printString = new StringBuilder();
+        boolean first = true;
+        for(String s: this.columns) {
+            if(first) {
+                printString.append(s);
+                first = false;
+            } else {
+                printString.append(" ").append(s);
+            }
+        }
+
+        for(List<Integer> row: this.data) {
+            printString.append("\n");
+            first = true;
+            for(Integer i: row) {
+                if(first) {
+                    printString.append(i);
+                    first = false;
+                } else {
+                    printString.append(" ").append(i);
+                }
+            }
+        }
+
+        printString.append("\n");
+
+        printLine(printString);
     }
 }

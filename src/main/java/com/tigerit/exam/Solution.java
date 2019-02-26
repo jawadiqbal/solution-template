@@ -115,7 +115,8 @@ public class Solution implements Runnable {
                 } else if(query.shortNameForLeft != null && query.shortNameForRight.equals(rightList.get(0)) || query.tableRight.name.equals(rightList.get(0))) {
                     query.rightColumnForJoin = rightList.get(1);
                 }
-
+                
+                String blankLine = readLine();
                 queryList.add(query);
             }
 
